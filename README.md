@@ -11,3 +11,5 @@ PayPal Sandbox accounts:
   User: Jane Doe
   Email: sb-gaqmb32441188@personal.example.com
   Password: takehome321
+
+Site is hosted through AWS EC2 instance, using Nginx to display and manage the HTML pages stored on the AWS server.
