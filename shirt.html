@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="mtsformat.css" />
+
+    <title>Griffin's MTS Shirt</title>
+
+</head>
+
+<body>
+
+    <!-- Button and script for going back to index.html page -->
+
+    <button onclick="returnFunction()">Home</button>
+
+    <script>
+		function returnFunction() {
+			window.location.href = 'index.html';
+  		}
+    </script>
+
+    <h2>Your Cart</h2>
+
+
+    <div class="product-details">
+
+        <h3>MTS Shirt</h3>
+
+        <p>Item Number: 123</p>
+        
+        <br>
+
+        <p>Price: $19.99</p>
+
+    </div>
+
+<div></div>
+
+    <h3>Billing Information</h3>
+
+    <!-- Form written to provide transaction information to the PayPal Sandbox for Checkout -->
+
+    <form id="myContainer" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+
+        <input type="hidden" name="cmd" value="_xclick">
+
+        <input type="hidden" name="business" value="griffinwknight@gmail.com">
+
+        <input type="hidden" name="item_name" value="MTS Shirt">
+
+        <input type="hidden" name="amount" value="19.99">
+
+        <input type="hidden" name="currency_code" value="USD">
+
+
+
+        <label for="first-name">First Name:</label>
+
+        <input type="text" id="first-name" name="first_name" value="Jane" required><br>
+
+
+
+        <label for="last-name">Last Name:</label>
+
+        <input type="text" id="last-name" name="last_name" value="Doe" required><br>
+
+
+
+        <label for="email">Email:</label>
+
+        <input type="email" id="email" name="email" value="jane.doe@email.com" required><br>
+
+
+
+        <label for="phone">Phone Number:</label>
+
+        <input type="tel" id="phone" name="phone" value="5559920963" required><br>
+
+
+
+        <label for="address">Address:</label>
+
+        <input type="text" id="address" name="address" value="1309 Koenigstein Ave" required><br>
+
+
+
+        <label for="city">City:</label>
+
+        <input type="text" id="city" name="city" value="Norfolk" required><br>
+
+
+
+        <label for="state">State:</label>
+
+        <input type="text" id="state" name="state" value="NE" required><br>
+
+
+
+        <label for="zip">Zip Code:</label>
+
+        <input type="text" id="zip" name="zip" value="68701" required><br>
+
+
+
+        <input type="submit" value="Pay with PayPal --->" class="paypal-button">
+
+    </form>
+
+    <!-- Script for setting up the Express Checkout button API -->
+
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+    <!-- Script for calling the Express Checkout function for setting up and opening Checkout pop-up -->
+
+    <script>
+   		window.paypalCheckoutReady = function () {
+     		paypal.checkout.setup('FP4USDDHEA9MU', {
+        	environment: 'sandbox',
+         	container: 'myContainer'
+      	});
+  		};
+		</script>
+
+    <script src="https://www.paypalobjects.com/api/checkout.js" async></script>
+
+</body>
+
+</html>
